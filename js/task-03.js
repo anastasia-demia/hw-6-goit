@@ -25,18 +25,16 @@ const title = document.createElement("h2");
 title.textContent = "GALLERY";
 list.before(title);
 
-const elements = images.map(picture => {
-  const elementLi = document.createElement("li")
-  const imgEL = document.createElement('img')
-  elementLi.classList.add('item')
-  imgEL.classList.add('item-image')
-  imgEL.src = picture.url
-  imgEL.alt = picture.alt
-  imgEL.width = 400
-  imgEL.height = 210
-  elementLi.style.border = "dashed red 4px"
-  elementLi.append(imgEL)
-  return elementLi
-})
+function createImageElement (images) {
+  return images.map(({url, alt}) => {
+    return `
+    <li class="list-item">
+    <img class = "img" src="${url}", alt="${alt}", width="400", height="250",/>
+    </li>
+    `
+  }).join("")
+}
 
-list.append(...elements)
+const imagesMarkup = createImageElement(images)
+list.insertAdjacentHTML("afterbegin", imagesMarkup)
+
