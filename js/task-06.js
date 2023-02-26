@@ -5,16 +5,18 @@ let totalLengthNum = parseInt(totalLength, 10)
 
 inputEl.addEventListener('blur', onInputBlur)
 
+function deleteClass(input) {
+    inputEl.classList.remove(input);
+}
+function addClass(input) {
+    inputEl.classList.add(input);
+}
+
 function onInputBlur() {
     if (inputEl.value.length === totalLengthNum) {
-        inputEl.classList.remove("invalid");
-        inputEl.classList.add("valid");
-    }
-    if (inputEl.value.length === 0) {
-        inputEl.classList.remove("valid");
-        inputEl.classList.remove("invalid");
-    }
-    if (inputEl.value.length !== totalLengthNum && inputEl.value.length !== 0) {
-        inputEl.classList.add("invalid");
+        deleteClass("invalid")
+        addClass("valid");
+    } else {
+        addClass("invalid")
     }
 };
