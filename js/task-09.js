@@ -12,7 +12,3 @@ buttonEl.addEventListener("click", (event) => {
   bodyEl.style.backgroundColor = color;
 })
 
-buttonEl.addEventListener("click", (event) => {
-  let color = getRandomHexColor();
-  buttonEl.style.backgroundColor = color;
-})
