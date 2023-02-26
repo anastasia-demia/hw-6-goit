@@ -1,18 +1,15 @@
 const inputEl = document.querySelector("input#name-input")
-const inputNameEl = document.querySelector("span#name-output")
-console.log(inputEl)
-console.log(inputNameEl)
+const outputEL = document.querySelector("span#name-output")
 
-inputEl.addEventListener("keyup", changeName)
+
+inputEl.addEventListener("input", changeName)
 
 function changeName(event) {
     event.preventDefault();
-    if (event.keyCode === 13) {
-        if (inputEl.value.length === 0) {
-            inputNameEl.textContent = "Anonymous"
-        } else {
-            inputNameEl.textContent = inputEl.value
-        }
+    if (!inputEl.value.trim()) {
+        outputEL.textContent = "Anonymous"
+    } else {
+        outputEL.textContent = inputEl.value
     }
 }
 
