@@ -8,7 +8,7 @@ formEl.addEventListener("submit", (event) => {
     } = event.currentTarget;
     console.log(email.value, password.value);
 
-    if (email.value === "" || password.value === "") {
+    if (email.value.trim() === "" || password.value === "") {
         return alert("ALL FIELDS MUST BE FILLED IN <3")
     }
 
